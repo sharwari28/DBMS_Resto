@@ -1,0 +1,135 @@
+<link rel="stylesheet" href="/css/manage.css">
+<div>
+    <center>
+        <h2><b>Manage </b></h2>
+    </center>
+</div>
+<hr>
+
+<div class="main-con">
+    <div class="form-con">
+        <div class="frms">
+            <center>
+            <h5>Employee</h5>
+            </center>
+            <form action="/add-employee" method="post">
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="name" placeholder="Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="mobile" placeholder="Phone" required>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="address" placeholder="Address" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary"> Add New Employee</button>
+            </form>
+        </div>
+        <hr>
+        <div class="frms">
+            <center>
+            <h5>Items</h5>
+            </center>
+            <form action="/add-item" method="post">
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="name" placeholder="Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="stocks" placeholder="Stocks" required>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="number" name="price" placeholder="Price" required>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="type" placeholder="Type" required>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="description" placeholder="Description" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary"> Add New Item</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="table-con">
+        <div class="tbls">
+            <center>
+                <h5>Employee</h5>
+                </center>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(employee of employee) { %>
+                        <tr>
+                            <td>
+                                <%= employee.name %>
+                            </td>
+                            <td>
+                                <%=employee.email %>
+                            </td>
+
+                            <td>
+                                <%= employee.mobile %>
+                            </td>
+                            <td>
+                                <%= employee.address %>
+                            </td>
+                            <td> <a href="/delete-employee/<%= employee._id %>"> <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Delete</button> </a> </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tbls">
+            <center>
+                <h5>Items</h5>
+                </center>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Stocks</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(item of item) { %>
+                        <tr>
+                            <td>
+                                <%= item.name %>
+                            </td>
+                            <td>
+                                <%=item.stocks %>
+                            </td>
+                            <td>
+                                <%=item.price %>
+                            </td>
+                            <td>
+                                <%= item.type %>
+                            </td>
+                            <td>
+                                <%= item.description %>
+                            </td>
+                            <td> <a href="/delete-item/<%= item._id %>"> <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Delete</button> </a> </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RestoManagement | Login </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/signin.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="c1">
+
+            <div class="c11">
+                <h1 class="mainhead">Restaurent Management System</h1>
+                <!-- <p class="mainp">Just click the buttons below to toggle between SignIn & SignUp</p> -->
+            </div>
+            <div id="left">
+                <h1 class="s1class"><span>SIGN</span><span class="su">IN</span>
+                </h1>
+            </div>
+            <div id="right">
+                <h1 class="s2class"><span>SIGN</span><span class="su">UP</span></h1>
+            </div>
+        </div>
+        <div class="c2">
+            <!-- <form action="/create" method="post" class="signup">
+                <h1 class="signup1">SIGN UP</h1>
+                <br><br><br><br>
+                <input name="username" type="text" placeholder="Username*" class="username" />
+
+                <input name="email" type="text" placeholder="Email*" class="username" />
+
+                <input name="password" type="password" placeholder="Password*" class="username" />
+
+                <button class="btn">Sign Up</button>
+            </form> -->
+            <form method="post" action="/create-session" class="signin">
+
+                <h1 class="signup1">SIGN IN</h1>
+                <br><br><br><br>
+                <input name="username" type="text" placeholder="Username*" class="username" />
+
+                <input name="password" type="password" placeholder="Password*" class="username" />
+
+                <button type="submit" class="btn"> LOGIN </button>
+
+                <br><br><br><br>
+                <a href="">
+                    <p class="signup2">Forget Password?</p>
+                </a>
+            </form>
+
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <script>
+        <% if (flash.success && flash.success.length > 0) { %>
+            new Noty({
+                theme: 'relax',
+                text: "<%= flash.success %>",
+                type: 'success',
+                layout: 'topRight',
+                timeout: 1500
+                
+            }).show();    
+        <% } %>
+
+        <% if (flash.error && flash.error.length > 0) {%>
+            new Noty({
+                theme: 'relax',
+                text: "<%= flash.error %>",
+                type: 'error',
+                layout: 'topRight',
+                timeout: 1500
+                
+            }).show();    
+        <%} %>
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.2/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/signin.js"></script>
+</body>
+</html>

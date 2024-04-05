@@ -1,0 +1,22 @@
+.main-con {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.form-con {
+    width: 30%;
+}
+.frms {
+    /* border: 1px solid black; */
+    margin: 25px 0px;
+    padding: 20px 15px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+.table-con {
+    width: 60%;
+}
+.tbls {
+    margin: 25px 0px;
+}

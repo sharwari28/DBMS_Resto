@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url('/images/bgg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.main-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.card-body {
+    padding: 3rem 3rem;
+}
+.card {
+    border-radius: 4rem;
+    background-color: #ffffff2e;
+}
+.profile-p {
+    width: 55%;
+    padding: 2em;
+
+}
+
+
+@media screen and (max-width: 612px) {
+    .profile-p {
+        width: 100%;
+    }
+}

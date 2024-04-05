@@ -1,0 +1,70 @@
+<script>
+    var get = [];
+</script>
+<center>
+    <h2>Add Order</h2>
+</center>
+<link rel="stylesheet" href="/css/addorder.css">
+<div class="frms">
+    <form id="addcustform" action="/add-customer" method="post">
+        <h6>Customer Details</h6>
+            <div class="mb-3">
+                <input class="form-control" type="text" name="name" placeholder="Name" required>
+            </div>
+            <div class="mb-3">
+                <input class="form-control" type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="mb-3">
+                <input class="form-control" type="text" name="mobile" placeholder="Phone" required>
+            </div>
+            <div class="mb-3">
+                <input class="form-control" type="text" name="address" placeholder="Address" required>
+            </div>
+            <button type="submit" class="btn btn-secondary">Save Details</button>
+    </form>
+    <hr>
+            <div class="mb-3 select-items">
+                <h6>List of items</h6>   
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                <% for (item of item) { %>     
+                            <tr>
+                                <td>
+                                    <%= item.name %>
+                                </td>
+                                <td>
+                                    <%=item.price %> Rs
+                                </td>
+                                <td>
+                                    <input class="form-control" type="number" name="quantity" id="inp-<%=item._id%>" max="20" min="0" value="" placeholder="Quantity" required>
+                                </td>
+                                <td>
+                                    <a href="<%=item._id%>"> <button type="button" id="btn-<%=item._id%>" class="btn btn-secondary additembtn" >Add</button> </a>                                    
+                                </td>                               
+                            </tr>
+                            <script>
+                                get.push({
+                                    id: "<%= item._id %>",
+                                    name: "<%= item.name %>",
+                                    price: "<%= item.price %>"
+                                })
+                            </script>
+                            <% } %>
+                    </tbody>
+                </table>                
+            </div>
+            <div class="mb-3 tempbill"> 
+                <button id="fetchbill" class="btn btn-secondary">Fetch Bill</button>
+                <div id="bill-div"></div>
+            </div>
+            <button id="place-order" class="btn btn-primary">Place Order</button>
+</div>
+<script src="/js/addorder.js"></script>

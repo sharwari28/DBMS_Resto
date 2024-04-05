@@ -1,0 +1,115 @@
+<link rel="stylesheet" href="/css/vieworder.css">
+
+<% let totalamt=0 %>
+    <% let totalitems=0 %>
+        <div class="table-con">
+            <table class="table table-striped">
+                <center>
+                    <h5>Orders</h5>
+                </center>
+                <thead>
+                    <tr>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Customer Email</th>
+                        <th scope="col">No. Items</th>
+                        <th scope="col">Bill Amount</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(order of order) { %>
+                        <tr>
+                            <td>
+                                <%= order.customer.name %>
+                            </td>
+                            <td>
+                                <%= order.customer.email %>
+                            </td>
+                            <td>
+                                <%=order.count %>
+                                    <% totalitems+=order.count %>
+                            </td>
+                            <td>
+                                <%= order.total %> Rs
+                                    <% totalamt+=order.total %>
+                            </td>
+                            <td>
+                                <% date=order.createdAt %>
+                                    <%= date.toString().slice(0,25) %>
+                            </td>
+                        </tr>
+                        <% } %>
+                            <tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-con">
+            <table class="table">
+                <center>
+                    <h5>Reports</h5>
+                </center>
+                <thead>
+                    <tr>
+                        <th scope="col">Range</th>
+                        <th scope="col">No. Orders</th>
+                        <th scope="col">No. Items</th>
+                        <th scope="col">Bill Amount</th>
+                        <th scope="col">Date From</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Total
+                        </td>
+                        <td>
+                            <%= ordcnt %>
+                        </td>
+
+                        <td>
+                            <%=totalitems%>
+                        </td>
+                        <td>
+                            <%=totalamt%> Rs
+                        </td>
+                        <td> Start</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly
+                        </td>
+                        <td>
+                            <%= monthly[0].no %>
+                        </td>
+
+                        <td>
+                            <%= monthly[0].count%>
+                        </td>
+                        <td>
+                            <%= monthly[0].total %> Rs
+                        </td>
+                        <td>
+                            <% date1=oneMonth %>
+                                <%= date1.toString().slice(0,25) %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Weekly
+                        </td>
+                        <td>
+                            <%= weekly[0].no %>
+                        </td>
+
+                        <td>
+                            <%= weekly[0].count%>
+                        </td>
+                        <td>
+                            <%= weekly[0].total %> Rs
+                        </td>
+                        <td>
+                            <% date1=oldDate %>
+                                <%= date1.toString().slice(0,25) %>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>

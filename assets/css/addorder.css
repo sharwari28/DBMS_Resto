@@ -1,0 +1,19 @@
+.frms {
+    /* border: 1px solid black; */
+
+    width: 50%;
+    margin: 25px 0px;
+    margin: auto;
+    padding: 20px 15px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+.tempbill{
+    display: none;
+}
+#place-order {
+    display: none;
+}
+.select-items {
+    display: none;
+}
